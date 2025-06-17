@@ -1,7 +1,7 @@
 // alert("script is working...")
 
 const API_KEY = '21ca5ac40fe04d49bd0142942251606';
-const BASE_URL = 'http://api.weatherapi.com/v1';
+const BASE_URL = 'https://api.weatherapi.com/v1';
 
 const cityInput = document.getElementById('cityInput');
 const searchBtn = document.getElementById('searchBtn');
@@ -84,8 +84,8 @@ async function handleSearch() {
         const forecast = await fetchForecastData(city);
         updateForecast(forecast);
     } catch (error) {
-        console.error('Error yabn el M&$!#%', error);
-        alert('Error fetching Ya Wlad El M&$!#%');
+        console.error('Error fetching', error);
+        alert('Error fetching');
     }
 }
 
@@ -223,7 +223,7 @@ cityInput.addEventListener('input', (e) => {
                 suggestionsContainer.classList.add('active');
             }
         } catch (error) {
-            console.error('Error yabn el M&$!#%', error);
+            console.error('Error fetching', error);
             suggestionsContainer.innerHTML = `
                 <div class="suggestion-item">
                     <i class="fas fa-exclamation-circle"></i>
@@ -251,7 +251,7 @@ window.addEventListener('load', () => {
                 handleSearchByCoords(latitude, longitude);
             },
             (error) => {
-                console.error('Error yabn el M&$!#%', error);
+                console.error('Error fetching', error);
                 handleSearch('London');
             }
         );
@@ -278,15 +278,15 @@ async function fetchWeatherDataWithCache(city) {
         
         if (!response.ok) {
             if (response.status === 401) {
-                showError('M&$!#% el API mesh sa7eb');
+                showError('el API mesh sa7eb 7aga');
                 return;
             }
             if (response.status === 429) {
-                showError('Too many requests...M&$!#%');
+                showError('Too many requests');
                 return;
             }
             if (response.status === 404) {
-                showError('City not found M&$!#%');
+                showError('City not found');
                 return;
             }
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -295,7 +295,7 @@ async function fetchWeatherDataWithCache(city) {
         const data = await response.json();
         
         if (!data || !data.location) {
-            showError('M&$!#%');
+            showError('Error fetching');
             return;
         }
         weatherCache.set(city, {
@@ -305,8 +305,8 @@ async function fetchWeatherDataWithCache(city) {
 
         updateCurrentWeather(data);
     } catch (error) {
-        console.error('Error yabn el M&$!#%', error);
-        showError('Error fetching M&$!#%');
+        console.error('Error fetching', error);
+        showError('Error fetching');
     }
 }
 
@@ -325,11 +325,11 @@ async function handleSearchByCoords(lat, lon) {
         
         if (!response.ok) {
             if (response.status === 401) {
-                showError('API key Festek M&$!#%');
+                showError('API key Festek');
                 return;
             }
             if (response.status === 429) {
-                showError('A7a Too many requests.');
+                showError('Too many requests.');
                 return;
             }
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -338,7 +338,7 @@ async function handleSearchByCoords(lat, lon) {
         const data = await response.json();
         
         if (!data || !data.location) {
-            showError('A7a');
+            showError('Error fetching');
             return;
         }
 
@@ -349,7 +349,7 @@ async function handleSearchByCoords(lat, lon) {
 
         updateCurrentWeather(data);
     } catch (error) {
-        console.error('Error yabn el M&$!#%', error);
+        console.error('Error fetching', error);
         showError('Error fetching weather data');
     }
 }
