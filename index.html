@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="./assets/images/storm_728136.png" alt="Weather App">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>Weather</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-location-dot" ></i>
+                        <span>Map</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-bell"></i>
+                        <span>Alerts</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-gear"></i>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="top-search">
+                <input type="text" id="cityInput" class="search-input" placeholder="Search for cities">
+                <button class="btn btn-search" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <section class="weather-main-card">
+                <div class="weather-header">
+                    <div>
+                        <h2 class="city-name">City</h2>
+                        <div class="weather-desc">Chance of rain: <span class="chance-of-rain">0%</span></div>
+                    </div>
+                    <div class="weather-icon-large"><i class="fas fa-sun"></i></div>
+                </div>
+                <div class="weather-temp-main">
+                    <span class="temperature">--</span><span class="degree">°</span>
+                </div>
+                <div class="hourly-forecast">
+                </div>
+                <div class="air-conditions">
+                    <div class="air-card">
+                        <div><i class="fas fa-temperature-low" style="color: #38bdf8; margin-right: 6px;"></i>Real Feel</div>
+                        <div class="feels-like">--°</div>
+                    </div>
+                    <div class="air-card">
+                        <div><i class="fas fa-cloud-rain" style="color: #38bdf8; margin-right: 6px;"></i>Chance of rain</div>
+                        <div class="chance-of-rain">0%</div>
+                    </div>
+                    <div class="air-card">
+                        <div><i class="fas fa-wind" style="color: #38bdf8; margin-right: 6px;"></i>Wind</div>
+                        <div class="wind-speed">-- km/h</div>
+                    </div>
+                    <div class="air-card">
+                        <div><i class="fas fa-sun" style="color: #38bdf8; margin-right: 6px;"></i>UV Index</div>
+                        <div class="uv-index">--</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <section class="forecast-panel">
+            <h3>7-DAY FORECAST</h3>
+            <div class="weekly-forecast">
+            </div>
+        </section>
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
